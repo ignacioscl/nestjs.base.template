@@ -5,7 +5,7 @@ NestJS Project Template
 This is a template for a NestJS project, designed to help you get started quickly with building robust and scalable applications using NestJS, a powerful Node.js framework.
 
 Features
-TypeORM Integration: Easily connect to a MySQL database using TypeORM, a popular Object-Relational Mapping (ORM) library for TypeScript and JavaScript.
+<p><b>TypeORM Integration</b>: Easily connect to a MySQL database using TypeORM, a popular Object-Relational Mapping (ORM) library for TypeScript and JavaScript.</p>
 
 Data Access Objects (DAOs): Implement DAOs to abstract and encapsulate database operations. This provides a clear separation of concerns between data access and business logic.
 
