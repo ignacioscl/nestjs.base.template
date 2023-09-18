@@ -1,29 +1,31 @@
 import { Injectable } from '@nestjs/common';
-import { AnonymousCustomer } from 'src/entities/anonymous.customer.entity';
+
+import { Customer } from 'src/entities/customer.entity';
+import CustomerFilter from 'src/queryFilter/customer.filter';
 import { DataSource, Repository } from 'typeorm';
 @Injectable()
-export class AnonymousCustomerRepository extends Repository<AnonymousCustomer> {
+export class CustomerRepository extends Repository<Customer> {
   constructor(private dataSource: DataSource) {
-    super(AnonymousCustomer, dataSource.createEntityManager());
+    super(Customer, dataSource.createEntityManager());
   }
 
-  async getById(id: number) {
-    const obj = await this.dataSource.createQueryBuilder(AnonymousCustomer,"ac")
-      .leftJoinAndSelect('ac.usuario', 'u')
-      .where('ac.id = :id', { id })
-      .getOne();
-    return obj;
+  async getById(id: number) : Promise<Customer> {
+    const obj = await this.findOne({ where:{ id: id }});
+    return (obj ? obj.toJSON() : null);
   }
-  async getByUuid(uuid: string) {
-    const obj = await this.dataSource.createQueryBuilder(AnonymousCustomer,"ac")
-      .leftJoinAndSelect('ac.usuario', 'u')
-      .where('ac.uuid = :uuid', { uuid })
-      .getOne();
-    return obj;
-  }
-  async fetch() : Promise<AnonymousCustomer[]> {
-    const list :AnonymousCustomer[] = await this.dataSource.createQueryBuilder(AnonymousCustomer,"au").where("au.id=:id",{id:1}).getMany();
-    return list
+
+  async fetch(filter:CustomerFilter) : Promise<[Customer[],number]> {
+    const query = this.dataSource.createQueryBuilder(Customer,"c")
+    
+    if (filter.id>0) {
+      query.where("c.id=:id",{id:filter.id})
+    }
+    if (filter.orderBy) {
+      query.orderBy(filter.orderBy,filter.orderByDirection)
+    }
+    const [list,total]  = await query.getManyAndCount();
+    const ret           = list.map((e : Customer) => e.toJSON())
+    return [ret,total];
   }
   // ...
 }

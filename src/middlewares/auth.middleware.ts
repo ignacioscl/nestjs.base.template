@@ -13,7 +13,7 @@ export class AuthMiddleware implements NestMiddleware {
 
 
     // Obtener el token del encabezado de autorización
-    const token = req.headers.authorization;
+    let token = req.headers.authorization;
 
     if (!token) {
       // Si no se proporciona un token, devolver un error de autorización
@@ -22,11 +22,12 @@ export class AuthMiddleware implements NestMiddleware {
 
     // Verificar el token y decodificar el objeto
     try {
+      token = (token.split(" ").length>1 ? token.split(" ")[1] : token);
       const decoded = jwt.verify(token, config.token); // Reemplaza 'tu_secreto_secreto' con tu clave secreta real
 
       // Adjuntar el objeto decodificado a la solicitud para que esté disponible en los controladores
       req['user'] = decoded;
-
+//console.log(decoded)
       // Continuar con la solicitud
       next();
     } catch (error) {
