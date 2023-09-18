@@ -1,37 +1,42 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+NestJS Project Template
+This is a template for a NestJS project, designed to help you get started quickly with building robust and scalable applications using NestJS, a powerful Node.js framework.
+
+Features
+TypeORM Integration: Easily connect to a MySQL database using TypeORM, a popular Object-Relational Mapping (ORM) library for TypeScript and JavaScript.
+
+Data Access Objects (DAOs): Implement DAOs to abstract and encapsulate database operations. This provides a clear separation of concerns between data access and business logic.
+
+Services: Define services to encapsulate and manage the business logic of your application. Services can be injected into controllers and other components.
+
+Filters: Implement filters to handle exceptions and customize the error responses returned by the API.
+
+Response Containers: Use response containers to standardize API responses and provide consistent data structures for success and error responses.
+
+Entities: Define TypeORM entities to model your database tables and relationships. Entities represent the structure of your data.
+
+Controllers: Create controllers to handle HTTP requests and route them to the appropriate service methods. Controllers define the API endpoints.
+
+Dotenv Configuration: Manage configuration settings using dotenv, a module for loading environment variables from a .env file.
+
+
+Usage
+This template provides a solid foundation for building NestJS applications. You can extend it by adding your own controllers, services, and entities to suit your project's requirements.
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Acknowledgments
+Special thanks to the NestJS community for their contributions and support.
 
 ## Installation
 
 ```bash
 $ npm install
 ```
-
+Set up your MySQL database and update the connection details in .env files
 ## Running the app
 
 ```bash
